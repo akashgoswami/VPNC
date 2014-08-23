@@ -20,12 +20,15 @@
 
 #include <sys/types.h>
 #include <sys/socket.h>
-#include <netinet/in.h>
+
 
 #if !defined(__CYGWIN__)
+#include <netinet/in.h>
 #include <net/if.h>
 #include <net/if_arp.h>
 #include <netinet/if_ether.h>
+#else
+#include <Inaddr.h>
 #endif
 
 #include "config.h"

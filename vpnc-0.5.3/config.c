@@ -191,6 +191,12 @@ static const char *config_def_target_network(void)
 	return "0.0.0.0/0.0.0.0";
 }
 
+static const char *config_def_local_network(void)
+{
+	return "0.0.0.0/0.0.0.0";
+}
+
+
 static const struct config_names_s {
 	enum config_enum nm;
 	const int needsArgument;
@@ -440,6 +446,13 @@ static const struct config_names_s {
 		"<directory>",
 		"path of the trusted CA-Directory",
 		config_ca_dir
+	}, {
+		CONFIG_IPSEC_LOCAL_NETWORK, 1, 1,
+		"--local-network",
+		"IPSEC local network ",
+		"<local network/netmask>",
+		"Local network in dotted decimal or CIDR notation\n",
+		config_def_local_network
 	}, {
 		CONFIG_IPSEC_TARGET_NETWORK, 1, 1,
 		"--target-network",
